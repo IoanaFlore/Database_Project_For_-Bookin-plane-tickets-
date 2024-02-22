@@ -7,4 +7,4 @@ Am setat cheile *primare și secundare* pentru fiecare tabel și cu ajutorul lor
 Pentru a mai returna date am ami folosit *LIMIT* care ne returneaza doar primele inregistrari specificate. Am returnat datele ordonate dupa anumite coloane cu *ORDER BY* si am mai folosoit si *SUBQUERY-URI*.
 
 ---------------------------------------------------------------
-In acest link gasim baza de date creata: [baza_de_date_rezervare_bilte]()
+In acest link gasim baza de date creata: [baza_de_date_rezervare_bilte](https://github.com/IoanaFlore/Proiect_final_IT_Factory_Baza_de_date/blob/main/baza_de_date_rezervare_bilet.sql)
