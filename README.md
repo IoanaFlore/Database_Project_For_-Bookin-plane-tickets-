@@ -119,4 +119,28 @@ values
      ("CVJKFJJ36474B", 4, 1),
      ("AWHRFUE4693JF", 5, 3);
 
+         After the insert, in order to prepare the data to be better suited for the testing process, I updated some data in the following way:
+       * update oras set nume_oras="Brasov" where id_oras=5;
+       * update oras set nume_oras="Brasov" where id_oras=5;
+       * update companie set descriere_companie = "Aceasta companie are un mare renume" 
+where nume_companie="Ryanair";
+       * update zbor set pret_zbor = 123.66 where id_zbor=1;
+       * update clienti set prenume = "Ionela" where nume="Mare";
+       * update clienti set email = "mareionela@gmail.com" where nume="Mare";
+       * update bilet set denumire_bilet = "AWHRF345393JF" where id_bilet=3;
+       * update zbor set date_de_sosire = "2024-04-04" where id_zbor = 1;
+
+      After the testing process, I deleted the data that was no longer relevant in order to preserve the database clean:
+       * delete from bilet where id_bilet=5;
+       * delete from clienti where id_client = 3;
+
+	  iii. DQL (Data Query Language)
+               In order to simulate various scenarios that might happen in real life I created the following queries that would cover multiple potential real-life situations:
+         * Return all data from the city table: select * from city;
+         * Return all data from the airport table: select * from airport;
+         * Return all data from the company table: select * from company;
+         * Return all data from the flight table: select * from flight;
+         * Return all data from the customers table: select * from customers;
+         * Return all data from the ticket table: select * from ticket;
+
 
