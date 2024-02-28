@@ -22,5 +22,55 @@ Database description: Air transportation is a vital option for fast and efficien
       **zbor.id_zbor** as a foreign key
      * **clienti** is connected with **bilet** through a **one to many** relationship which was implemented through **bilet.id_bilet** as a primary key and 
       **clienti.id_client** as a foreign key
+       
+   2. Database Queries
+      
+      i. DDL (Data Definition Language)
+      
+         The following instructions were written in the scope of CREATING the structure of the database (CREATE INSTRUCTIONS)
+      
+      * create database rezervare_bilete_avion;
+      * create table oras(
+       id_oras int not null auto_increment primary key,
+       nume_oras varchar(50),
+       tară varchar(50)
+);
+      * create table aeroport(
+	id_aeroport int not null auto_increment primary key,
+    id_oras int not null,
+    nume_aeroport_plecare varchar(80),
+    adresa_aeroport_plecare varchar(100),
+    foreign key (id_oras) references oras(id_oras)
+);
+      * create table companie(
+     id_companie int not null auto_increment primary key,
+     nume_companie varchar(30) not null,
+     descriere_companie varchar(100)
+);
+      * create table zbor(
+      id_zbor int not null auto_increment primary key,
+      data_de_plecare date,
+      date_de_sosire date,
+      pret_zbor float,
+      id_aeroport int not null,
+      id_companie int not null	
+);
+      * create table clienti(
+        id_client int not null auto_increment primary key,
+        nume varchar(30) not null,
+        prenume varchar(30) not null,
+        adresa varchar(100),
+        numar_telefon varchar(15) not null,
+        email varchar(50) not null
+);
+
+      After the database and the tables have been created, a few ALTER instructions were written in order to update the structure of the database, as described below:
+        
+       * alter table zbor add foreign key(id_aeroport) references aeroport(id_aeroport);
+       * alter table zbor add foreign key(id_companie) references companie(id_companie);
+       * alter table bilet add foreign key(id_zbor) references zbor(id_zbor);
+       * alter table bilet add foreign key(id_client) references clienti(id_client);
+        
+      
 
 
