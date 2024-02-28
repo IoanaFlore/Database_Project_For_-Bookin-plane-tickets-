@@ -170,5 +170,8 @@ where nume_companie="Ryanair";
          * First flight return: *select * from flight limit 1;*
          * Return of all flights ordered in ascending order by flight price: *select * from flight order by price_flight;*
          * Return of all flights ordered in descending order by flight price: *select * from flight order by price_flight desc;*
-
+           
+  3. Conclusions
+     
+     I created a database for booking plane tickets, from where I learned to create tables, populate them with data, make connections between tables, update some information, delete some data, and return the data both at once and with various filters.
 
