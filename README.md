@@ -14,5 +14,13 @@ Database description: Air transportation is a vital option for fast and efficien
 
      * **oras** is connected with **aeroport** through a **one to many** relationship which was implemented through **aeroport.id_aeroport** as a primary key and 
       **oras.id_oras** as a foreign key
-     * **oras** is connected with **aeroport** through a **one to many** relationship which was implemented through **aeroport.id_aeroport** as a primary key and 
-      **oras.id_oras** as a foreign key
+     * **aeroport** is connected with **zbor** through a **one to many** relationship which was implemented through **zbor.id_zbor** as a primary key and 
+      **aeroport.id_aeroport** as a foreign key
+     * **companie** is connected with **zbor** through a **one to many** relationship which was implemented through **zbor.id_zbor** as a primary key and 
+      **companie.id_companie** as a foreign key
+     * **zbor** is connected with **cilet** through a **one to many** relationship which was implemented through **bilet.id_bilet** as a primary key and 
+      **zbor.id_zbor** as a foreign key
+     * **clienti** is connected with **bilet** through a **one to many** relationship which was implemented through **bilet.id_bilet** as a primary key and 
+      **clienti.id_client** as a foreign key
+
+
