@@ -70,7 +70,53 @@ Database description: Air transportation is a vital option for fast and efficien
        * alter table zbor add foreign key(id_companie) references companie(id_companie);
        * alter table bilet add foreign key(id_zbor) references zbor(id_zbor);
        * alter table bilet add foreign key(id_client) references clienti(id_client);
-        
-      
+         
+      ii. DML (Data Manipulation Language)
+       In order to be able to use the database I populated the tables with various data necessary in order to perform queries and manipulate the data. In the testing process, this necessary data is identified in 
+the Test Design phase and created in the Test Implementation phase.
+
+       Below you can find all the insert instructions that were created in the scope of this project:
+       * insert into oras (nume_oras, tară)
+values 
+   ("Constanta", "Romania"),
+   ("Tulcea", "Romania"),
+   ("Cluj-Napoca", "Romania"),
+   ("Oradea", "Romania"),
+   ("Barsov", "Romania");
+       * insert into aeroport (id_oras, nume_aeroport_plecare, adresa_aeroport_plecare)
+values
+    (1, "Aeroport Mihail Kogalniceanu", "Str. Aeroportului nr.9"),
+    (2, "Aeroport Tulcea", "Str. Aeroportului nr.2"),
+    (3, "Aeroport Avram Iancu", "Str. Traian Vuia nr.3"),
+    (4, "Aeroport Oradea ","Str. Calea Aradului nr.9"),
+    (5, "Aeroport Barsov", "Str. Aeroportului nr.10");
+      * insert into companie (nume_companie, descriere_companie)
+values 
+	("Blue Air","Aceasta companie are sediu in Bucuresti."),
+	("Ryanair","Aceasta companie eset fondata in 1994."),
+	("HiSky","Aceasta companie are sediu in Chisinau."),
+	("EL AL","Aceasta companie este fonadat in 1948."),
+	("Wizz Air","Este o companie foarte buna.");
+       * insert into zbor(data_de_plecare, date_de_sosire, pret_zbor, id_aeroport, id_companie)
+values
+    ("2024-04-04", "2023-04-04", 345.33, 2, 4),
+    ("2024-05-02", "2023-05-02", 453.84, 1, 3),
+    ("2024-07-12", "2023-07-12", 234.99, 3, 1),
+    ("2024-04-14", "2023-04-14", 322.87, 4, 5),
+    ("2024-05-15", "2023-05-15", 157.86, 5, 2);
+        * insert into clienti (nume, prenume, adresa, numar_telefon, email)
+values 
+     ("Marincas","Ioana","Str. Roamana","0756578345","marincasioana@gmail.com"),
+     ("Mare","Ion","Str. Teiului","0753558325","mareion@gmail.com"),
+     ("Puie","Elena","Str. Margaretei","0754578241","puieelena@gmail.com"),
+     ("Rotar","Izabela","Str. Florilor","0756345679","rotarizabela@gmail.com"),
+     ("Crecan","Maria","Str. Marin Preda","0756789432","crecanmaria@gmail.com");
+        * insert into bilet(denumire_bilet, id_zbor, id_client)
+values 
+     ("AS458GMJDJJKF", 2, 4),
+     ("FS57838GFNJHJ", 1, 5),
+     ("AS23GFJGBJD34", 3, 2),
+     ("CVJKFJJ36474B", 4, 1),
+     ("AWHRFUE4693JF", 5, 3);
 
 
