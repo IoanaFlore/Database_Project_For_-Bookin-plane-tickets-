@@ -1,10 +1,18 @@
-## Am creat o bază de date în MySQL pentru rezervarea biletelor de avion.
-  DATABASE *baza_de_date_rezervare_bilet*
-* Am folosit **Instructiuni DDL** (*CREATE, ALTER*): Crearea a 6 tabele cu atributele specifice pentru fiecare si legăturile dintre acestea.
-* Am folosit **Instructiuni DML** (*INSERT, UPDATE, DELETE*): Cu *INSERT* am populat tabelele create, cu *UPDATE* am actualiazat unele datele din tabele, iar cu *DELETE* am sters anumite inregistrari din anumite tabele.
-* Am folosit **Instructiunii DQL**: am utlizat *SELECT* pentru a returna datele din tabele( *SELECT ALL* pentru returnarea tuturor datelor si returnarae doar a anumitor date prin *SELECT CATEVA COLOANE*). Am facut filtrari cu *WHERE, LIKE, AND, OR* si am folosit **functii agregate** (*COUNT,SUM,MIN,MAX, AVG*) si am facut filtrari cu acestea.
-Am setat cheile *primare și secundare* pentru fiecare tabel și cu ajutorul lor am creat **joinuri**: *INNER JOIN, LEFT JOIN, RIGHT JOIN, CRPSS JOIN*.
-Pentru a mai returna date am ami folosit *LIMIT* care ne returneaza doar primele inregistrari specificate. Am returnat datele ordonate dupa anumite coloane cu *ORDER BY* si am mai folosoit si *SUBQUERY-URI*.
+## Database Project for **Booking plane tickets**
+ The scope of this project is to use all the SQL knowledge gained throught the Software Testing course and apply them in practice.
 
----------------------------------------------------------------
-In acest link gasim baza de date creata: [baza_de_date_rezervare_bilte](https://github.com/IoanaFlore/Proiect_final_IT_Factory_Baza_de_date/blob/main/baza_de_date_rezervare_bilet.sql)
+Application under test: Booking plane tickets
+
+Tools used: MySQL Workbench
+
+Database description: Air transportation is a vital option for fast and efficient travel between different destinations. On the basis of a ticket, people can use air transport. The application aims to provide information to the user with reference to everything he needs for a plane flight, thus the user will avoid crowding and wasted time purchasing a ticket at the counter. The database will provide details about both the companies and the flights available for purchasing tickets, as well as information about the prices offered.
+
+  1. Database Schema
+
+     You can find below the database schema that was generated through Reverse Engineer and which contains all the tables and the relationships between them.
+      The tables are connected in the following way:
+
+     * **oras** is connected with **aeroport** through a **one to many** relationship which was implemented through **aeroport.id_aeroport** as a primary key and 
+      **oras.id_oras** as a foreign key
+     * **oras** is connected with **aeroport** through a **one to many** relationship which was implemented through **aeroport.id_aeroport** as a primary key and 
+      **oras.id_oras** as a foreign key
