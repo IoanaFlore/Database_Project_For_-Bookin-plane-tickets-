@@ -136,39 +136,39 @@ where nume_companie="Ryanair";
 
 	  iii. DQL (Data Query Language)
                In order to simulate various scenarios that might happen in real life I created the following queries that would cover multiple potential real-life situations:
-         * Return all data from the city table: select * from city;
-         * Return all data from the airport table: select * from airport;
-         * Return all data from the company table: select * from company;
-         * Return all data from the flight table: select * from flight;
-         * Return all data from the customers table: select * from customers;
-         * Return all data from the ticket table: select * from ticket;
-         * Return data about departure dates and flight prices from the flight table: select departure_date, flight_price from zbor;
-         * Return data about name, surname and phone number from the client table: select name, first name, phone_number from clients;
-         * Return flight data for flights with a price higher than 350: select * from flight where price_flight < 350;
-         * Return flight data for flights where the departure date is after 2024-05-15: select * from flight where departure_date > "2024-05-15";
-         * Rerun all clients whose names start with the letter 'M': select * from clients where name like "M%";
-         * Return all cities whose name ends with the letter 'a': select * from city where city_name like "%a";
+         * Return all data from the city table: *select * from city;*
+         * Return all data from the airport table: *select * from airport;*
+         * Return all data from the company table: *select * from company;*
+         * Return all data from the flight table: *select * from flight;*
+         * Return all data from the customers table: *select * from customers;*
+         * Return all data from the ticket table: *select * from ticket;*
+         * Return data about departure dates and flight prices from the flight table: * select departure_date, flight_price from zbor;*
+         * Return data about name, surname and phone number from the client table: *select name, first name, phone_number from clients;*
+         * Return flight data for flights with a price higher than 350: *select * from flight where price_flight < 350;*
+         * Return flight data for flights where the departure date is after 2024-05-15: *select * from flight where departure_date > "2024-05-15";*
+         * Rerun all clients whose names start with the letter 'M': *select * from clients where name like "M%";*
+         * Return all cities whose name ends with the letter 'a': *select * from city where city_name like "%a";*
          * Returns all flights that have a higher price greater than 300 and at the same time the departure date is after 2024-04-04:  
-                   select * from flight where flight_price > 300 and departure_date > "2024-04-04";
+                   *select * from flight where flight_price > 300 and departure_date > "2024-04-04";*
          * Return all flights that have an arrival date before 2024-04-14 or the flight price is less than 200: 
-                   select * from flight where arrival_date < "2024-04-14" or flight_price > 400;
-         * Return the arithmetic mean for the price of the flights: select avg(flight_price) from flight;
-         * Return of the amount for the price of the flights: select sum(flight_price) from flight;
-         * Returning the lowest flight price: select min(flight_price) from flight;
-         * Return of the highest flight price: select max(flight_price) from flight;
-         * Return the total number of records from the customer table: select count(*) from clients;
+                   *select * from flight where arrival_date < "2024-04-14" or flight_price > 400;*
+         * Return the arithmetic mean for the price of the flights: *select avg(flight_price) from flight;*
+         * Return of the amount for the price of the flights: * select sum(flight_price) from flight;*
+         * Returning the lowest flight price: *select min(flight_price) from flight;*
+         * Return of the highest flight price: *select max(flight_price) from flight;*
+         * Return the total number of records from the customer table: *select count(*) from clients;*
          * Returning the ids of the airports together with the average prices of flight only for airports for which the average price is higher than 300: 
-              select airport_id, avg(flight_price) as price from flight group by id_aeroport having price>300;
-         * Returning all customers who bought tickets: select * from clients c inner join ticket b on c.id_client= b.id_client;
+              *select airport_id, avg(flight_price) as price from flight group by id_aeroport having price>300;*
+         * Returning all customers who bought tickets: *select * from clients c inner join ticket b on c.id_client= b.id_client;*
          * Returns all customers together with information about the purchase of tickets (both customers who bought tickets and those who did not buy tickets):
-              select * from clienti c left join ticket b on c.id_client= b.id_client;
+              *select * from clienti c left join ticket b on c.id_client= b.id_client;*
          * Returning all the information from the ticket table and from the customer table populates the rest of the information only for common records:
-              select * from clienti c right join ticket b on c.id_client= b.id_client;
+              *select * from clienti c right join ticket b on c.id_client= b.id_client;*
          * Rerun all possible combinations of records between the customer and ticket tables
-              select * from clients cross join ticket;
-         * Return of the first 2 customers: select * from clients limit 2;
-         * First flight return: select * from flight limit 1;
-         * Return of all flights ordered in ascending order by flight price: select * from flight order by price_flight;
-         * Return of all flights ordered in descending order by flight price: select * from flight order by price_flight desc;
+              *select * from clients cross join ticket;*
+         * Return of the first 2 customers: *select * from clients limit 2;*
+         * First flight return: *select * from flight limit 1;*
+         * Return of all flights ordered in ascending order by flight price: *select * from flight order by price_flight;*
+         * Return of all flights ordered in descending order by flight price: *select * from flight order by price_flight desc;*
 
 
