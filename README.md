@@ -20,7 +20,7 @@ Database description: Air transportation is a vital option for fast and efficien
       **aeroport.id_aeroport** as a foreign key
      * **companie** is connected with **zbor** through a **one to many** relationship which was implemented through **zbor.id_zbor** as a primary key and 
       **companie.id_companie** as a foreign key
-     * **zbor** is connected with **client** through a **one to many** relationship which was implemented through **bilet.id_bilet** as a primary key and 
+     * **zbor** is connected with **bilet** through a **one to many** relationship which was implemented through **bilet.id_bilet** as a primary key and 
       **zbor.id_zbor** as a foreign key
      * **clienti** is connected with **bilet** through a **one to many** relationship which was implemented through **bilet.id_bilet** as a primary key and 
       **clienti.id_client** as a foreign key
@@ -64,6 +64,12 @@ Database description: Air transportation is a vital option for fast and efficien
         adresa varchar(100),
         numar_telefon varchar(15) not null,
         email varchar(50) not null
+);
+      * create table bilet(
+      id_bilet int not null auto_increment primary key,
+      denumire_bilet varchar(30),
+      id_zbor int not null,
+      id_client int not null     
 );
 
       After the database and the tables have been created, a few ALTER instructions were written in order to update the structure of the database, as described below:
