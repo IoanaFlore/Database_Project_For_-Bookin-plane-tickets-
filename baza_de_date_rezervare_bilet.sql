@@ -82,7 +82,7 @@ create table bilet(
       id_client int not null     
 );
 
-/* Legatura 'zbor-bilet' este de one to many (un zbor poate avea spre vanzare mai multe bilete, iar un bilet trebuie sa apartina unui singur zvor), 
+/* Legatura 'zbor-bilet' este de one to many (un zbor poate avea spre vanzare mai multe bilete, iar un bilet trebuie sa apartina unui singur zbor), 
 avand cheia primara 'id_bilet' si cheia secundara 'id_zbor' */
 alter table bilet add foreign key(id_zbor) references zbor(id_zbor);
 /* Legatura 'clienti-bilet' este de one to many (un client poate sa detina mai multe bilete, iar un bilet trebuie sa apartina unui singur client), 
@@ -160,7 +160,7 @@ values
 # Actualizarea orasului pentru inregistrarea 5 din tabelul oras.
 update oras set nume_oras="Brasov" where id_oras=5;
 # Actualizarea adresei aeroportlui pentru inregistrarea 2 din tabelul aeroport.
-update aeroport set adresa_aeroport_plecare = "Str. Aeroportlui nr.33" where id_aeroport=2;
+update oras set nume_oras="Brasov" where id_oras=5;
 /* Actualizarea descrieii companiei pentru inregistrarea cu
  numele companiei "Ryanair" din tabelul companiei.*/
 update companie set descriere_companie = "Aceasta companie are un mare renume" 
@@ -252,10 +252,10 @@ select id_aeroport, avg(pret_zbor) as pret from zbor
 group by id_aeroport having pret>300;
 
 # Joinuri
-# Returnarea informatiilor comune din tabelele clienti si bilet
+# Returnarea tuturor clientilor care au cumparat bilete
 select *  from  clienti c inner join bilet b on c.id_client= b.id_client;
 
-/* Returnarea tuturor informatiilor din tabela clienti si din tabela bilet populeaza restu de informatii doar pentru inregistrariile comune.*/
+/* Returneaza toti clientii impreuna cu informatii despre achizitia biletelor (atat clientii care au cumparat bilete cat si cei care nu au cumparat bilete).*/
 select *  from  clienti c left join bilet b on c.id_client= b.id_client;
 
 /* Returnarea tuturor informatiilor din tabela bilet si din tabela clienti populeaza restu de informatii doar pentru inregistrariile comune.*/
@@ -277,10 +277,11 @@ select * from zbor order by pret_zbor;
 select * from zbor order by pret_zbor desc;
 
 # Subquery-uri
-# Returnarea oraselor in care exista cel putin un aeroport cu adresa care contine cuvantul 'Aeroport'
-select nume_oras from oras
-where id_oras in (select id_oras from aeroport where adresa_aeroport_plecare like '%Aeroport%');
-# Returnarea datelor despre companii care au zborul dupa data de 2024-04-14     
-select * from companie
-where id_companie in (select distinct id_companie from zbor where data_de_plecare > '2024-04-14');
-
+# Returnarea numarului maxim de zboruri pentru fiecare aeroport in parte
+select a.nume_aeroport_plecare, max(numar_zboruri) from aeroport a 
+		inner join 
+		(select a.id_aeroport, a.nume_aeroport_plecare, count(id_zbor) numar_zboruri 
+		from aeroport a 
+             inner join zbor z on a.id_aeroport = z.id_aeroport
+		group by a.id_aeroport, a.nume_aeroport_plecare) numar_zboruri on a.id_aeroport = numar_zboruri.id_aeroport
+		group by a.nume_aeroport_plecare;
