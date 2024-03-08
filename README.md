@@ -10,6 +10,8 @@ Database description: Air transportation is a vital option for fast and efficien
   1. Database Schema
 
      You can find below the database schema that was generated through Reverse Engineer and which contains all the tables and the relationships between them.
+     ![1-data](https://github.com/IoanaFlore/Database_Project_For_-Bookin-plane-tickets-/assets/111995212/7ec99b1e-a983-4d8a-a8dd-91b325cbc9dd)
+
       The tables are connected in the following way:
 
      * **oras** is connected with **aeroport** through a **one to many** relationship which was implemented through **aeroport.id_aeroport** as a primary key and 
@@ -23,7 +25,7 @@ Database description: Air transportation is a vital option for fast and efficien
      * **clienti** is connected with **bilet** through a **one to many** relationship which was implemented through **bilet.id_bilet** as a primary key and 
       **clienti.id_client** as a foreign key
        
-   2. Database Queries
+   3. Database Queries
       
       i. DDL (Data Definition Language)
       
@@ -171,7 +173,7 @@ where nume_companie="Ryanair";
          * Return of all flights ordered in ascending order by flight price: *select * from zbor order by pret_zbor;*
          * Return of all flights ordered in descending order by flight price: *select * from vbor order by pret_zbor desc;*
            
-  3. Conclusions
+  4. Conclusions
      
      I created a database for booking plane tickets, from where I learned to create tables, populate them with data, make connections between tables, update some information, delete some data, and return the data both at once and with various filters.
 
