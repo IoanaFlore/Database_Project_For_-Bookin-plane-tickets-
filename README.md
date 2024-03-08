@@ -178,6 +178,13 @@ where nume_companie="Ryanair";
          * First flight return: *select * from zbor limit 1;*
          * Return of all flights ordered in ascending order by flight price: *select * from zbor order by pret_zbor;*
          * Return of all flights ordered in descending order by flight price: *select * from zbor order by pret_zbor desc;*
+         * Returning the maximum number of flights for each individual airport: *select a.nume_aeroport_plecare, max(numar_zboruri) from aeroport a 
+		inner join 
+		(select a.id_aeroport, a.nume_aeroport_plecare, count(id_zbor) numar_zboruri 
+		from aeroport a 
+                inner join zbor z on a.id_aeroport = z.id_aeroport
+		group by a.id_aeroport, a.nume_aeroport_plecare) numar_zboruri on a.id_aeroport = numar_zboruri.id_aeroport
+		group by a.nume_aeroport_plecare;*
            
   4. Conclusions
      
