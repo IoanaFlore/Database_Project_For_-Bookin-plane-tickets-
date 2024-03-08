@@ -177,7 +177,7 @@ where nume_companie="Ryanair";
          * Return of the first 2 customers: *select * from clienti limit 2;*
          * First flight return: *select * from zbor limit 1;*
          * Return of all flights ordered in ascending order by flight price: *select * from zbor order by pret_zbor;*
-         * Return of all flights ordered in descending order by flight price: *select * from vbor order by pret_zbor desc;*
+         * Return of all flights ordered in descending order by flight price: *select * from zbor order by pret_zbor desc;*
            
   4. Conclusions
      
