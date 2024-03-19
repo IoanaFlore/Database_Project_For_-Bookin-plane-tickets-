@@ -186,8 +186,9 @@ where nume_companie="Ryanair";
            select * from zbor where data_de_plecare > "2024-05-15";
            ```
          * Rerun all clients whose names start with the letter 'M':
+        ```sql
           select * from clienti where nume like "M%";
-          ```
+        ```
          * Return all cities whose name ends with the letter 'a':
          ```sql
           select * from oras where nume_oras like "%a";
@@ -217,7 +218,7 @@ where nume_companie="Ryanair";
          select max(pret_zbor) from zbor;
          ```
          * Return the total number of records from the customer table:
-        ```*
+        ```sql
         select count(*) from clienti;
         ```
          * Returning the ids of the airports together with the average prices of flight only for airports for which the average price is higher than 300: 
@@ -241,7 +242,7 @@ where nume_companie="Ryanair";
           select * from clienti cross join bilet;
         ```
          * Return of the first 2 customers:
-         ```
+         ```sql
          select * from clienti limit 2;
          ```
          * First flight return:
@@ -257,14 +258,14 @@ where nume_companie="Ryanair";
          select * from zbor order by pret_zbor desc;
          ```
          * Returning the maximum number of flights for each individual airport:
-        ```sql
-                select a.nume_aeroport_plecare, max(numar_zboruri) from aeroport a 
-		inner join 
-		(select a.id_aeroport, a.nume_aeroport_plecare, count(id_zbor) numar_zboruri 
-		from aeroport a 
-                inner join zbor z on a.id_aeroport = z.id_aeroport
-		group by a.id_aeroport, a.nume_aeroport_plecare) numar_zboruri on a.id_aeroport = numar_zboruri.id_aeroport
-		group by a.nume_aeroport_plecare;
+      ```sql
+           select a.nume_aeroport_plecare, max(numar_zboruri) from aeroport a 
+	   inner join 
+	   (select a.id_aeroport, a.nume_aeroport_plecare, count(id_zbor) numar_zboruri 
+	   from aeroport a 
+           inner join zbor z on a.id_aeroport = z.id_aeroport
+	   group by a.id_aeroport, a.nume_aeroport_plecare) numar_zboruri on a.id_aeroport = numar_zboruri.id_aeroport
+	   group by a.nume_aeroport_plecare;
         ```
            
   4. Conclusions
