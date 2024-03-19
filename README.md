@@ -144,47 +144,128 @@ where nume_companie="Ryanair";
 
 	  iii. DQL (Data Query Language)
                In order to simulate various scenarios that might happen in real life I created the following queries that would cover multiple potential real-life situations:
-         * Return all data from the city table: *select * from oras;*
-         * Return all data from the airport table: *select * from aeroport;*
-         * Return all data from the company table: *select * from companie;*
-         * Return all data from the flight table: *select * from zbor;*
-         * Return all data from the customers table: *select * from clienti;*
-         * Return all data from the ticket table: *select * from bilet;*
-         * Return data about departure dates and flight prices from the flight table: * select data_de_plecare, pret_zbor from zbor;*
-         * Return data about name, surname and phone number from the client table: *select nume, prenume, numer_telefon from clienti;*
-         * Return flight data for flights with a price higher than 350: *select * from zbor where pret_zbor < 350;*
-         * Return flight data for flights where the departure date is after 2024-05-15: *select * from zbor where data_de_plecare > "2024-05-15";*
-         * Rerun all clients whose names start with the letter 'M': *select * from clienti where nume like "M%";*
-         * Return all cities whose name ends with the letter 'a': *select * from oras where nume_oras like "%a";*
+         * Return all data from the city table:
+           
+           ```sql
+           select * from oras;
+           ```
+         * Return all data from the airport table:
+           ```sql
+           select * from aeroport;
+           ```
+         * Return all data from the company table:
+           ```sql
+           select * from companie;
+           ```
+         * Return all data from the flight table:
+           ```sql
+            *select * from zbor;
+           ```
+         * Return all data from the customers table:
+           ```sql
+           select * from clienti;
+           ```
+         * Return all data from the ticket table:
+           ```sql
+           select * from bilet;
+           ```
+         * Return data about departure dates and flight prices from the flight table:
+            ```sql
+             select data_de_plecare, pret_zbor from zbor;
+            ```
+         * Return data about name, surname and phone number from the client table:
+           ```sql
+           select nume, prenume, numer_telefon from clienti;
+           ```
+         * Return flight data for flights with a price higher than 350:
+           ```sql
+           select * from zbor where pret_zbor < 350;
+           ```
+         * Return flight data for flights where the departure date is after 2024-05-15:
+           ```sql
+           select * from zbor where data_de_plecare > "2024-05-15";
+           ```
+         * Rerun all clients whose names start with the letter 'M':
+          select * from clienti where nume like "M%";
+          ```
+         * Return all cities whose name ends with the letter 'a':
+         ```sql
+          select * from oras where nume_oras like "%a";
+         ```
          * Returns all flights that have a higher price greater than 300 and at the same time the departure date is after 2024-04-04:  
-                   *select * from zbor where pret_zbor > 300 and data_de_plecare > "2024-04-04";*
-         * Return all flights that have an arrival date before 2024-04-14 or the flight price is less than 200: 
-                   *select * from flight where data_de_sosire < "2024-04-14" or pret_zbor > 400;*
-         * Return the arithmetic mean for the price of the flights: *select avg(pret_zbor) from zbor;*
-         * Return of the amount for the price of the flights: * select sum(pret_zbor) from zbor;*
-         * Returning the lowest flight price: *select min(pret_zbor) from zbor;*
-         * Return of the highest flight price: *select max(pret_zbor) from zbor;*
-         * Return the total number of records from the customer table: *select count(*) from clienti;*
+         ```sql
+          select * from zbor where pret_zbor > 300 and data_de_plecare > "2024-04-04";
+         ```
+         * Return all flights that have an arrival date before 2024-04-14 or the flight price is less than 200:
+         ```sql
+         select * from flight where data_de_sosire < "2024-04-14" or pret_zbor > 400;
+         ```
+         * Return the arithmetic mean for the price of the flights:
+         ```sql
+         select avg(pret_zbor) from zbor;
+         ```
+         * Return of the amount for the price of the flights:
+         ```sql
+         select sum(pret_zbor) from zbor;
+         ```
+         * Returning the lowest flight price:
+         ```sql
+         select min(pret_zbor) from zbor;
+         ```
+         * Return of the highest flight price:
+         ```sql
+         select max(pret_zbor) from zbor;
+         ```
+         * Return the total number of records from the customer table:
+        ```*
+        select count(*) from clienti;
+        ```
          * Returning the ids of the airports together with the average prices of flight only for airports for which the average price is higher than 300: 
-              *select id_aeroport, avg(pret_zbor) as pret from zbor group by id_aeroport having pret>300;*
-         * Returning all customers who bought tickets: *select * from clienti c inner join bilet b on c.id_client= b.id_client;*
+         ```sql
+         select id_aeroport, avg(pret_zbor) as pret from zbor group by id_aeroport having pret>300;
+         ```
+         * Returning all customers who bought tickets:
+         ```sql
+         select * from clienti c inner join bilet b on c.id_client= b.id_client;
+         ```
          * Returns all customers together with information about the purchase of tickets (both customers who bought tickets and those who did not buy tickets):
-              *select * from clienti c left join bilet b on c.id_client= b.id_client;*
+         ```sql
+         select * from clienti c left join bilet b on c.id_client= b.id_client;
+         ```
          * Returning all the information from the ticket table and from the customer table populates the rest of the information only for common records:
-              *select * from clienti c right join bilet b on c.id_client= b.id_client;*
+         ```sql
+         select * from clienti c right join bilet b on c.id_client= b.id_client;
+         ```
          * Rerun all possible combinations of records between the customer and ticket tables
-              *select * from clienti cross join bilet;*
-         * Return of the first 2 customers: *select * from clienti limit 2;*
-         * First flight return: *select * from zbor limit 1;*
-         * Return of all flights ordered in ascending order by flight price: *select * from zbor order by pret_zbor;*
-         * Return of all flights ordered in descending order by flight price: *select * from zbor order by pret_zbor desc;*
-         * Returning the maximum number of flights for each individual airport: *select a.nume_aeroport_plecare, max(numar_zboruri) from aeroport a 
+        ```sql
+          select * from clienti cross join bilet;
+        ```
+         * Return of the first 2 customers:
+         ```
+         select * from clienti limit 2;
+         ```
+         * First flight return:
+         ```sql
+         select * from zbor limit 1;*
+         ```
+         * Return of all flights ordered in ascending order by flight price:
+         ```sql
+         select * from zbor order by pret_zbor;*
+        ```
+         * Return of all flights ordered in descending order by flight price: *
+         ```sql
+         select * from zbor order by pret_zbor desc;
+         ```
+         * Returning the maximum number of flights for each individual airport:
+        ```sql
+                select a.nume_aeroport_plecare, max(numar_zboruri) from aeroport a 
 		inner join 
 		(select a.id_aeroport, a.nume_aeroport_plecare, count(id_zbor) numar_zboruri 
 		from aeroport a 
                 inner join zbor z on a.id_aeroport = z.id_aeroport
 		group by a.id_aeroport, a.nume_aeroport_plecare) numar_zboruri on a.id_aeroport = numar_zboruri.id_aeroport
-		group by a.nume_aeroport_plecare;*
+		group by a.nume_aeroport_plecare;
+        ```
            
   4. Conclusions
      
